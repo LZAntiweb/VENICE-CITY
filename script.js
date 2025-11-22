@@ -1,4 +1,4 @@
-// HEADER BACKGROUND ON SCROLL
+// HEADER BG SCROLL
 window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
     header.style.background = window.scrollY > 50 
@@ -6,13 +6,7 @@ window.addEventListener("scroll", () => {
         : "rgba(15, 4, 35, 0.6)";
 });
 
-// BOTÃO SCALE
-document.querySelectorAll(".btn-primary, .btn-secondary").forEach(btn => {
-    btn.addEventListener("mouseover", () => btn.style.transform = "scale(1.08)");
-    btn.addEventListener("mouseout", () => btn.style.transform = "scale(1)");
-});
-
-// MENU HAMBURGUER
+// MENU MOBILE
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 

@@ -11,6 +11,20 @@ body {
     color: white;
 }
 
+/* LOGO ANIMADA */
+.animate-logo {
+    opacity: 0;
+    animation: fadeIn 2s ease forwards, glow 3s ease-in-out infinite alternate;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #b978ff; }
+    100% { text-shadow: 0 0 20px #d19bff, 0 0 40px #b978ff; }
+}
+
 /* HEADER */
 header {
     position: fixed;
@@ -18,7 +32,6 @@ header {
     width: 100%;
     padding: 18px 50px;
     background: rgba(15, 4, 35, 0.6);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(8px);
     display: flex;
     justify-content: space-between;
@@ -30,15 +43,9 @@ header {
     font-size: 24px;
     font-weight: 700;
     color: #b978ff;
-    letter-spacing: 2px;
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
+/* NAV */
 .nav-links a {
     color: #d0c9e6;
     margin-left: 22px;
@@ -46,10 +53,7 @@ nav {
     font-size: 16px;
     transition: 0.2s;
 }
-
-.nav-links a:hover {
-    color: #b978ff;
-}
+.nav-links a:hover { color: #b978ff; }
 
 .menu-toggle {
     display: none;
@@ -60,64 +64,126 @@ nav {
 
 /* HERO */
 .hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 150px 20px;
     height: 100vh;
     background: url("image.png") center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 5%;
-    flex-direction: column;
+    color: white;
 }
 
-.hero-content h1 {
-    font-size: clamp(32px, 8vw, 62px);
-    font-weight: 700;
-    color: #e6d4ff;
-    text-shadow: 0 0 15px #9b4dff;
+/* OVERLAY ESCURO */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.70));
+    z-index: 1;
+}
+
+/* TEXTO HERO POR CIMA DO OVERLAY */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* TYPEWRITER ANIMATION */
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #b978ff;
+    width: 0;
+    animation: typing 3s steps(40) forwards, blink .6s step-end infinite alternate;
+}
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+@keyframes blink {
+    from { border-color: transparent; }
+    to { border-color: #b978ff; }
 }
 
 .hero-content p {
-    font-size: clamp(16px, 4vw, 20px);
-    color: #cfc0f0;
-    max-width: 500px;
-    margin: 15px auto 25px auto;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 2.8s;
 }
 
-.btn-group {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-}
-
+/* BUTTONS */
 .btn-primary, .btn-secondary {
     width: 220px;
-    text-align: center;
+    padding: 14px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .btn-primary {
-    padding: 14px 25px;
     background: linear-gradient(90deg, #9b4dff, #ff3bd4);
     color: white;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 0 15px rgba(255, 36, 227, 0.6);
 }
 
 .btn-secondary {
-    padding: 14px 25px;
     background: transparent;
     border: 2px solid #9b4dff;
     color: #d2bfff;
-    border-radius: 10px;
-    text-decoration: none;
+}
+.btn-secondary:hover { background: #9b4dff; color: white; }
+
+.social-card i,
+.discord-btn i {
+    font-size: 26px;
+    margin-right: 8px;
 }
 
-.btn-secondary:hover {
+/* SOCIAL GRID */
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+}
+
+.social-card {
+    background: #1a0f2b;
+    padding: 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    border: 2px solid #9b4dff;
+    color: #c594ff;
+    text-decoration: none;
+    transition: .25s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.social-card:hover {
     background: #9b4dff;
     color: white;
+    transform: scale(1.05);
+}
+
+/* DISCORD BUTTON */
+.discord-btn {
+    background: #5865F2;
+    padding: 16px 35px;
+    border-radius: 12px;
+    color: white;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* SOBRE */
@@ -145,49 +211,6 @@ nav {
     color: #d8c6ff;
 }
 
-.social-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 20px;
-}
-
-.social-card {
-    background: #1a0f2b;
-    padding: 20px;
-    text-align: center;
-    border-radius: 12px;
-    color: #c594ff;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #9b4dff;
-    transition: 0.25s;
-}
-
-.social-card:hover {
-    background: #9b4dff;
-    color: white;
-    transform: scale(1.05);
-}
-
-/* DISCORD */
-.discord-section {
-    padding: 80px 5%;
-    background: #1b0f2b;
-    text-align: center;
-}
-
-.discord-btn {
-    display: inline-block;
-    padding: 16px 35px;
-    background: #5865F2;
-    border-radius: 12px;
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 18px;
-    box-shadow: 0 0 15px rgba(88, 101, 242, 0.6);
-}
-
 /* FOOTER */
 footer {
     text-align: center;
@@ -197,34 +220,9 @@ footer {
     margin-top: 40px;
 }
 
-/* MEDIA QUERIES */
+/* RESPONSIVO */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 10px;
-        padding: 15px 20px;
-    }
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        gap: 15px;
-    }
-    .menu-toggle {
-        display: block;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-content h1 {
-        font-size: 28px;
-    }
-    .hero-content p {
-        font-size: 16px;
-    }
-    .btn-primary, .btn-secondary {
-        width: 100%;
-        padding: 12px;
-    }
+    .nav-links { display: none; flex-direction: column; }
+    .menu-toggle { display: block; }
+    .btn-primary, .btn-secondary { width: 100%; }
 }
