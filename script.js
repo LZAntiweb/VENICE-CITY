@@ -1,21 +1,21 @@
-// Efeito no header ao rolar
+// HEADER BACKGROUND ON SCROLL
 window.addEventListener("scroll", () => {
     const header = document.querySelector("header");
-
-    if (window.scrollY > 50) {
-        header.style.background = "rgba(15, 4, 35, 0.9)";
-    } else {
-        header.style.background = "rgba(15, 4, 35, 0.6)";
-    }
+    header.style.background = window.scrollY > 50 
+        ? "rgba(15, 4, 35, 0.9)" 
+        : "rgba(15, 4, 35, 0.6)";
 });
 
-// Animação simples nos botões
+// BOTÃO SCALE
 document.querySelectorAll(".btn-primary, .btn-secondary").forEach(btn => {
-    btn.addEventListener("mouseover", () => {
-        btn.style.transform = "scale(1.08)";
-    });
+    btn.addEventListener("mouseover", () => btn.style.transform = "scale(1.08)");
+    btn.addEventListener("mouseout", () => btn.style.transform = "scale(1)");
+});
 
-    btn.addEventListener("mouseout", () => {
-        btn.style.transform = "scale(1)";
-    });
+// MENU HAMBURGUER
+const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+menuToggle.addEventListener("click", () => {
+    navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
 });
