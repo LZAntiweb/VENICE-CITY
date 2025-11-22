@@ -1,0 +1,176 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+body {
+    background: #120a1f;
+    color: white;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 18px 50px;
+    background: rgba(15, 4, 35, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #b978ff;
+    letter-spacing: 2px;
+}
+
+nav a {
+    color: #d0c9e6;
+    margin-left: 22px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #b978ff;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url("image.png") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+    backdrop-filter: brightness(0.3);
+}
+
+.hero-content h1 {
+    font-size: 62px;
+    font-weight: 700;
+    color: #e6d4ff;
+    text-shadow: 0 0 15px #9b4dff;
+}
+
+.hero-content p {
+    font-size: 20px;
+    color: #cfc0f0;
+    max-width: 500px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.btn-group {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-primary {
+    padding: 14px 25px;
+    background: linear-gradient(90deg, #9b4dff, #ff3bd4);
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(255, 36, 227, 0.6);
+}
+
+.btn-secondary {
+    padding: 14px 25px;
+    background: transparent;
+    border: 2px solid #9b4dff;
+    color: #d2bfff;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background: #9b4dff;
+    color: white;
+}
+
+/* SOBRE */
+.sobre {
+    padding: 100px 80px;
+    background: #1b0f2b;
+    text-align: center;
+}
+
+.sobre h2 {
+    font-size: 36px;
+    color: #d8c6ff;
+    margin-bottom: 20px;
+}
+
+/* REDES */
+.redes {
+    padding: 80px;
+    text-align: center;
+}
+
+.redes h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #d8c6ff;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+}
+
+.social-card {
+    background: #1a0f2b;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    color: #c594ff;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #9b4dff;
+    transition: 0.25s;
+}
+
+.social-card:hover {
+    background: #9b4dff;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* DISCORD */
+.discord-section {
+    padding: 80px;
+    background: #1b0f2b;
+    text-align: center;
+}
+
+.discord-btn {
+    display: inline-block;
+    padding: 16px 35px;
+    background: #5865F2;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
+    box-shadow: 0 0 15px rgba(88, 101, 242, 0.6);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #120a1f;
+    color: #a893c9;
+    margin-top: 40px;
+}
